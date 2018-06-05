@@ -3,10 +3,9 @@
 ## Genearal Idea
 
 Create and application where FAC students and mentors can log in and keep in touch with their ongoing cohort
-or other cohorts happening anywhere in the World. The idea is first to keep all the links to various information in one place
-(coursebook, schedule, timeline and other meaningful information for current students) and also have an online platform where
-it's possible to see what is going on in different cohorts. As well as finding information, students and mentors can create "moments" which are 
-are like pages in their personal FAC diary. with the help of a calendar, people can create "moments" whithin their FAC journey and record, notes,
+or other cohorts happening anywhere in the World. The idea is first to have all the FAQ for each campus in one place and also have an online platform where
+it's possible to see what is going on in different cohorts. Students and mentors can create "moments" which are 
+are like pages in their personal FAC diary. With the help of a calendar, people can create "moments" whithin their FAC journey and record notes,
 personal impressions, media, etc. 
 
 ## Login and Profile
@@ -16,14 +15,7 @@ student or mentor (have the API check if the user is part of the FAC repository?
 
 ## Informative Purposes
 
-Students:
-* Keep track of the curriculum for each week with the help of the github API.
-* Keep track of deadlines or important key events.
-* Help to organize community tasks within a cohort (guesthouse chores, who makes dinner, C4E, ...)
-* For international students, some key information about the city that could be helpful (places to eat, public transport, ...).
-
-Mentors:
-* Same functionality as for students with some added sections that could fulfill specific mentor needs (meeting schedule, updates, ...)
+Keep a record of essential FAQs for each campuses.
 
 ## Individual Profile
 
@@ -38,7 +30,7 @@ so that the picture gets added to right page of the diary making editing moments
 
 ## Community Sharing
 
-There is a dedicated page for people to share their "moments" if they choose to which could help for the global community to feel 
+There is a dedicated page/forum for people to share their "moments" if they choose to which could help for the global community to feel 
 connected together. Users can also edit their personal moments to create a more suitable public version (so someone can have a set of public edits
 as well as private ones. Each moment opens on a new tab with the community page giving only a sample of it. Users can react to moments by writing comments.
 
