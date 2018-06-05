@@ -1,8 +1,11 @@
+
 require('env2')('.env');
 const express = require('express');
 const logger = require('morgan');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
+const passport = require('passport');
+const router = require('./routes/auth');
 const path = require('path');
 
 const app = express();
@@ -20,6 +23,9 @@ app.use(
   })
 );
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
   app.get('*', (req, res) => {
@@ -27,15 +33,33 @@ if (process.env.NODE_ENV === 'production') {
       path.resolve(__dirname, '..', 'client', 'build', 'index.html')
     );
   });
-} else {
-  app.get('/', (req, res) => {
-    res.send('This is the home page');
-  });
-  app.get('*', (req, res) => {
-    res.status(404).send("sorry, can't find what you are looking for...");
-  });
 }
 
+app.get('/', (req, res) => {
+  const html =
+    "<ul>\
+      <li><a href='/auth/github'>GitHub</a></li>\
+          <li><a href='/logout'>logout</a></li>\
+            </ul>";
+  res.send(html);
+});
+
+app.get('/logout', (req, res) => {
+  console.log('Logging out!');
+  req.logout();
+  res.redirect('/');
+});
+
+app.get('/login', (req, res) => {
+  res.send('This is the login page');
+});
+
+app.use(router);
+
+app.get('*', (req, res) => {
+  res.status(404).send("sorry, can't find what you are looking for...");
+});
+
 app.listen(port, () => {
-  console.log(`The magic happens on port ${host}:${port}`);
+  console.log(`The magic happens on ${host}:${port}`);
 });
