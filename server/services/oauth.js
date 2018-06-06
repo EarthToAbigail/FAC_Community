@@ -15,7 +15,8 @@ passport.use(
     {
       clientID: keys.githubClientId,
       clientSecret: keys.githubClientSecret,
-      callbackURL: 'http://localhost:4444/auth/github/callback'
+      callbackURL: '/auth/github/callback',
+      proxy: true
     },
     (accessToken, refreshToken, profile, done) => {
       process.nextTick(() => {
