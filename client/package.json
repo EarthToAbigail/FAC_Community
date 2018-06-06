@@ -1,0 +1,24 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": {
+    "/auth/github": {
+      "target": "http://localhost:4444"
+    },
+    "/*": {
+      "target": "http://localhost:4444"
+    }
+  },
+  "dependencies": {
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "PORT=5000 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

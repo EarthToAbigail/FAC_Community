@@ -9,7 +9,7 @@ routerAuth.get('/login', handlersAuth.login);
 
 routerAuth.get(
   '/auth/github',
-  passport.authenticate('github', { scope: ['user:email'] })
+  passport.authenticate('github', { scope: 'write:org' })
 );
 
 routerAuth.get(

@@ -35,10 +35,6 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.get('/', (req, res) => {
-  res.send('This is HOME');
-});
-
 app.use('/', routerAuth);
 
 app.get('*', (req, res) => {
