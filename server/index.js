@@ -1,12 +1,12 @@
-
 require('env2')('.env');
 const express = require('express');
 const logger = require('morgan');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const router = require('./routes/auth');
+const routerAuth = require('./routes/auth');
 const path = require('path');
+require('./services/oauth');
 
 const app = express();
 const port = process.env.PORT || 4444;
@@ -36,25 +36,10 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.get('/', (req, res) => {
-  const html =
-    "<ul>\
-      <li><a href='/auth/github'>GitHub</a></li>\
-          <li><a href='/logout'>logout</a></li>\
-            </ul>";
-  res.send(html);
+  res.send('This is HOME');
 });
 
-app.get('/logout', (req, res) => {
-  console.log('Logging out!');
-  req.logout();
-  res.redirect('/');
-});
-
-app.get('/login', (req, res) => {
-  res.send('This is the login page');
-});
-
-app.use(router);
+app.use('/', routerAuth);
 
 app.get('*', (req, res) => {
   res.status(404).send("sorry, can't find what you are looking for...");

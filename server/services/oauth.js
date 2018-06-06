@@ -6,9 +6,8 @@ passport.serializeUser((user, done) => {
   done(null, user);
 });
 
-passport.deserializeUser((user, done) => {
-  // Query the db, find the id
-  done(null, user);
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
 });
 
 passport.use(
@@ -19,15 +18,9 @@ passport.use(
       callbackURL: 'http://localhost:4444/auth/github/callback'
     },
     (accessToken, refreshToken, profile, done) => {
-      console.log(
-        'accessToken: ',
-        accessToken,
-        'refreshToken: ',
-        refreshToken,
-        'profile: ',
-        profile
-      );
-      return done(null, profile);
+      process.nextTick(() => {
+        return done(null, profile);
+      });
     }
   )
 );
