@@ -1,25 +1,22 @@
 const passport = require('passport');
 const routerAuth = require('express').Router();
+
 const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 const handlersAuth = require('../handlers/authHandlers');
 
 routerAuth.get('/user/:username', ensureAuthenticated, handlersAuth.account);
 
-routerAuth.get('/login', handlersAuth.login);
-
 routerAuth.get(
   '/auth/github',
-  passport.authenticate('github', { scope: 'write:org' })
+  passport.authenticate('github', { scope: ['write:org', 'user:email'] })
 );
 
 routerAuth.get(
   '/auth/github/callback',
-  passport.authenticate('github', { failureRedirect: '/login' }),
-  (req, res) => {
-    res.redirect(`/user/${req.user.username}`);
-  }
+  passport.authenticate('github', { failureRedirect: '/' }),
+  handlersAuth.isMember
 );
 
-routerAuth.get('/logout', handlersAuth.logout);
+routerAuth.get('/user/:username/logout', handlersAuth.logout);
 
 module.exports = routerAuth;
