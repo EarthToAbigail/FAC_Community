@@ -6,13 +6,14 @@
     "/auth/github": {
       "target": "http://localhost:4444"
     },
-    "/*": {
+    "/user/*": {
       "target": "http://localhost:4444"
     }
   },
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4"
   },
   "scripts": {
