@@ -3,7 +3,7 @@ import header from '../images/logo-foundersandcoders.png';
 
 const Home = () => (
   <div className="hero">
-    <div className="hero-inner">
+    <div>
       <img className="header" alt="Founders and Coders logo" src={header} />
       <div>
         <h1 style={{ color: 'white' }}>
