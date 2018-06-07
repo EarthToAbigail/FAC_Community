@@ -1,20 +1,30 @@
 import React from 'react';
-import header from '../images/logo-foundersandcoders.png';
+import header from '../images/logo-foundersandcoders-shadow.png';
+import { Hero, TagLine, HeaderLogo } from '../styles/components/homeStyles';
+import '../styles/LoginBtn.css';
+import githubLogo from '../images/github-6-80-w.png';
 
 const Home = () => (
-  <div className="hero">
+  <Hero>
     <div>
-      <img className="header" alt="Founders and Coders logo" src={header} />
+      <HeaderLogo alt="Founders and Coders logo" src={header} />
       <div>
-        <h1 style={{ color: 'white' }}>
+        <TagLine>
           Sharing Platform for the Founders and Coders Community
-        </h1>
-        <a className="button" href="/auth/github">
-          Login With Github
-        </a>
+        </TagLine>
+        <ul>
+          <li>
+            <a className="round green" href="/auth/github">
+              Login
+              <span className="round">
+                <img className="logo" src={githubLogo} alt="github logo" />
+              </span>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
-  </div>
+  </Hero>
 );
 
 export default Home;
