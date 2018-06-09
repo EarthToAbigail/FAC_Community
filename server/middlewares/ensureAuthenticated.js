@@ -1,7 +1,5 @@
 const ensureAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated() && req.params.username === req.user.username) {
-    return next();
-  }
+  if (req.isAuthenticated()) return next();
   res.redirect('/');
 };
 

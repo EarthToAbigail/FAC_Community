@@ -1,6 +1,14 @@
 const request = require('request');
 const _ = require('lodash');
 
+exports.homeRedirect = (req, res) => {
+  if (req.isAuthenticated()) {
+    res.send({ authenticated: true, username: req.user.username });
+  } else {
+    res.send({ authenticated: false, username: null });
+  }
+};
+
 exports.account = (req, res) => {
   res.send(req.user);
 };
@@ -14,7 +22,7 @@ exports.isMember = (req, res) => {
   const options = {
     url: req.user._json.organizations_url,
     headers: {
-      'User-Agent': 'Founders and Coders Community Dev'
+      'User-Agent': 'Founders and Coders Community'
     }
   };
 
@@ -24,8 +32,8 @@ exports.isMember = (req, res) => {
       const orgs = JSON.parse(body);
       const isMember = orgs.filter(name => name.login === 'foundersandcoders');
       _.isEmpty(isMember)
-        ? res.redirect(`/user/${req.user.username}/logout`)
-        : res.redirect(`/user/${req.user.username}`)
+        ? res.redirect(`/api/logout`)
+        : res.redirect(`/${req.user.username}`)
     }
   });
 };
