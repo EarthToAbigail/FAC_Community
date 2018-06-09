@@ -12,6 +12,9 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/no-unescaped-entities": ["error", {"forbid": [">", "}"]}],
     "arrow-body-style": ["error", "always"],
-    "no-unused-expressions": ["error", { "allowTernary": true }]
+    "no-unused-expressions": ["error", { "allowTernary": true }],
+    "no-unused-vars": "off",
+    "consistent-return": "off",
+    "arrow-body-style": "off"
   }
 }

@@ -42,5 +42,6 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`The magic happens on ${host}:${port}`);
 });

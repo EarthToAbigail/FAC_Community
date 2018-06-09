@@ -13,7 +13,19 @@
     font-size: 17px;
 }
 
+.topnav button {
+    display: block;
+    padding: 2rem 1.5rem;
+    border: none;
+    background-color: #196666;
+}
+
 .topnav a:hover {
+    background-color: #008080;
+    color: white;
+}
+
+.topnav button:hover {
     background-color: #008080;
     color: white;
 }
@@ -29,18 +41,24 @@
 
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
-  .topnav a.icon {
+  .topnav button.icon {
     float: right;
     display: block;
+  }
+  .topnav button.icon:focus {
+    outline: none;
   }
 }
 
 @media screen and (max-width: 600px) {
   .topnav.responsive {position: relative;}
-  .topnav.responsive a.icon {
+  .topnav.responsive button.icon {
     position: absolute;
     right: 0;
     top: 0;
+  }
+  .topnav button.icon:focus {
+    outline: none;
   }
   .topnav.responsive a {
     float: none;

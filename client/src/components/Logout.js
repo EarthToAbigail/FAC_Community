@@ -17,10 +17,11 @@ class Logout extends Component {
       axios
         .get('/api/logout')
         .then(res => {
-          res.data === 'logged out' ? (window.location.href = '/') : null;
+          // eslint-disable-next-line no-undef
+          if (res.data === 'logged out') window.location.href = '/';
         })
         .catch(err => {
-          console.log(err);
+          console.err(err);
           this.renderError();
         });
     }, 2000);

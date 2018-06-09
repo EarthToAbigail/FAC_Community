@@ -41,13 +41,9 @@ class Navbar extends Component {
         <a href={momentUrl}>Moments</a>
         <a href={this.state.forum_url}>Community</a>
         <a href={logoutUrl}>Logout</a>
-        <a
-          href=""
-          className="icon"
-          onClick={this.handleClick}
-        >
-          <FaBars size={17} color="white" />
-        </a>
+        <button className="icon" onClick={this.handleClick}>
+          <FaBars size={20} color="white" />
+        </button>
       </div>
     );
   }
