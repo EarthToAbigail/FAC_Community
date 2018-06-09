@@ -3,7 +3,6 @@ import heroBackground from '../../images/academy-EDIT2.jpg';
 
 export const Hero = styled.div`
   background-image: url(${heroBackground});
-  background-color: blue;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
