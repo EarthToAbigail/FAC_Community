@@ -27,12 +27,6 @@
     display: none;
 }
 
-img {
-  /* display: inline-block; */
-  max-width: 2rem;
-  height: auto;
-}
-
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {

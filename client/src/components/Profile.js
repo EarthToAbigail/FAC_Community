@@ -16,7 +16,6 @@ class Profile extends Component {
         if (!res.data.username) window.location.href = '/';
         else {
           this.setState({ user: res.data });
-          console.log(this.state);
         }
       })
       .catch(err => {
@@ -33,7 +32,7 @@ class Profile extends Component {
     }
     return (
       <div>
-        <Navbar/>
+        <Navbar username={this.props.match.params.username}/>
         <div>
           <h2>Profile Page</h2>
         </div>

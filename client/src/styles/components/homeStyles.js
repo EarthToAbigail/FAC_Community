@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import heroBackground from '../../images/academy-EDIT2.jpg';
 
 export const Hero = styled.div`

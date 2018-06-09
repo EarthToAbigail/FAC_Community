@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import header from '../images/logo-foundersandcoders-shadow.png';
 import { Hero, TagLine, HeaderLogo } from '../styles/components/homeStyles';
+import Error from '../styles/components/Error';
 import '../styles/LoginBtn.css';
 import githubLogo from '../images/github-6-80-w.png';
 
@@ -10,7 +11,8 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      authenticated: false
+      authenticated: false,
+      error: false
     };
   }
   componentDidMount() {
@@ -21,13 +23,24 @@ class Home extends Component {
         this.setState({ authenticated, username });
       })
       .catch(err => {
-        console.log(err);
+        console.log('this is my error: ', err);
+
       });
+  }
+
+  renderError() {
+    this.setState({ error: true });
   }
 
   render() {
     if (this.state.authenticated === true) {
-      window.location.href = `/user/${this.state.username}`;
+      window.location.href = `/${this.state.username}`;
+    } else if (this.state.error) {
+      return (
+        <Error>
+          <h1>Oh No!!! something went wrong :|</h1>
+        </Error>
+      );
     } else {
       return (
         <Hero>

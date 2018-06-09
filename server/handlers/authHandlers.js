@@ -15,7 +15,7 @@ exports.account = (req, res) => {
 
 exports.logout = (req, res) => {
   req.logout();
-  res.redirect('/');
+  res.status(200).send('success');
 };
 
 exports.isMember = (req, res) => {

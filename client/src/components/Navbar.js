@@ -7,13 +7,23 @@ class Navbar extends Component {
     super(props);
     this.state = {
       showMenu: false,
-      classes: 'topnav'
+      classes: 'topnav',
+      forum_url: ''
     };
     this.handleClick = this.handleClick.bind(this);
+    this.findForumUrl = this.findForumUrl.bind(this);
+  }
+  componentDidMount() {
+    this.findForumUrl();
+  }
+
+  findForumUrl() {
+    if (process.env.NODE_ENV !== 'production') {
+      this.setState({ forum_url: 'http://localhost:3000' });
+    }
   }
 
   handleClick() {
-    console.log(this.state);
     this.setState({ showMenu: !this.state.showMenu });
     this.state.showMenu
       ? this.setState({ classes: 'topnav responsive' })
@@ -21,16 +31,18 @@ class Navbar extends Component {
   }
 
   render() {
+    const logoutUrl = '/'.concat(this.props.username.concat('/logout'));
+    const momentUrl = '/'.concat(this.props.username.concat('/moments/edit'));
     return (
       <div className={this.state.classes}>
         <a href="/" className="active">
           Home
         </a>
-        <a href="#">Moments</a>
-        <a href="#">Community</a>
-        <a href="#">Logout</a>
+        <a href={momentUrl}>Moments</a>
+        <a href={this.state.forum_url}>Community</a>
+        <a href={logoutUrl}>Logout</a>
         <a
-          href="javascript:void(0);"
+          href=""
           className="icon"
           onClick={this.handleClick}
         >
