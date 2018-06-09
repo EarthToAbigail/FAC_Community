@@ -36,7 +36,7 @@ class Home extends Component {
 
   render() {
     if (this.state.authenticated === true) {
-      window.location.href = `/${this.state.username}`;
+      window.location.href = `/${this.state.username}`; // eslint-disable-line no-undef
     } else if (this.state.error) {
       return <ErrorPage />;
     }

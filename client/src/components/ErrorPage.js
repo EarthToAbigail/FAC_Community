@@ -28,11 +28,11 @@ const ErrorPage = () => {
         </a>
         <h3>
           <span className="blue">whyOhWhy</span>(
-          <span className="red">"$%ndeo@...don't get it... @!$%^).."</span>)
+          <span className="red">"$%@..don't get it..@!$%^).."</span>)
         </h3>
-        <a href="#" className="button disabled">
+        <button className="button disabled">
           <span>Back to Home</span>
-        </a>
+        </button>
       </div>
     </Error>
   );

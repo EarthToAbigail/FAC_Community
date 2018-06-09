@@ -20,7 +20,7 @@ exports.logout = (req, res) => {
 
 exports.isMember = (req, res) => {
   const options = {
-    url: req.user._json.organizations_url,
+    url: req.user._json.organizations_url, // eslint-disable-line no-underscore-dangle
     headers: {
       'User-Agent': 'Founders and Coders Community'
     }
@@ -38,7 +38,7 @@ exports.isMember = (req, res) => {
       } else if (!req.user.username) {
         res.redirect('/');
       } else {
-        res.redirect(`/${req.user.username}`)
+        res.redirect(`/${req.user.username}`);
       }
     }
   });

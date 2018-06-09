@@ -18,6 +18,7 @@ class Profile extends Component {
     axios
       .get('/api/user')
       .then(res => {
+        // eslint-disable-next-line no-undef
         if (!res.data.username) window.location.href = '/';
         else {
           this.setState({ user: res.data });

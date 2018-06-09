@@ -3,4 +3,4 @@ import ReactDOM from 'react-dom';
 import './styles/globalStyle';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root')); // eslint-disable-line no-undef
