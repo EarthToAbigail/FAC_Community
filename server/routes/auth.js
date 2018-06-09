@@ -4,7 +4,9 @@ const routerAuth = require('express').Router();
 const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 const handlersAuth = require('../handlers/authHandlers');
 
-routerAuth.get('/user/:username', ensureAuthenticated, handlersAuth.account);
+routerAuth.get('/api/auth', handlersAuth.homeRedirect);
+
+routerAuth.get('/api/user', ensureAuthenticated, handlersAuth.account);
 
 routerAuth.get(
   '/auth/github',
@@ -17,6 +19,6 @@ routerAuth.get(
   handlersAuth.isMember
 );
 
-routerAuth.get('/user/:username/logout', handlersAuth.logout);
+routerAuth.get('/api/logout', handlersAuth.logout);
 
 module.exports = routerAuth;

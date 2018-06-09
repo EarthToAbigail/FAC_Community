@@ -9,6 +9,9 @@
   "rules": {
     "prettier/prettier": ["error", { "singleQuote": true }],
     "comma-dangle": ["error", "never"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/no-unescaped-entities": ["error", {"forbid": [">", "}"]}],
+    "arrow-body-style": ["error", "always"],
+    "no-unused-expressions": ["error", { "allowTernary": true }]
   }
 }

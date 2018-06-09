@@ -6,15 +6,19 @@
     "/auth/github": {
       "target": "http://localhost:4444"
     },
-    "/user/*": {
+    "/api/*": {
       "target": "http://localhost:4444"
     }
   },
   "dependencies": {
+    "ajv": "^6.5.0",
+    "axios": "^0.18.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-icons": "^2.2.7",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "styled-components": "^3.3.2"
   },
   "scripts": {
     "start": "PORT=5000 react-scripts start",
