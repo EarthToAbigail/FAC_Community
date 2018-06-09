@@ -1,11 +1,11 @@
 import React from 'react';
 import Error from '../styles/components/Error';
-import pic from '../images/404-2.jpg';
+import errorImg from '../images/error.jpg';
 
-const Error404 = () => {
+const ErrorPage = () => {
   return (
     <Error>
-      <img src={pic} alt="error404" />
+      <img src={errorImg} alt="error404" />
       <div>
         <h3>
           <span className="blue">whyOhWhy</span>(
@@ -36,4 +36,4 @@ const Error404 = () => {
   );
 };
 
-export default Error404;
+export default ErrorPage;

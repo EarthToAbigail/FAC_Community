@@ -43,7 +43,6 @@ const Error = styled.div`
     transition: all 0.5s;
     cursor: pointer;
     margin: 0.5em;
-    ${'' /* vertical-align: middle; */}
     text-align: center;
   }
 
@@ -53,30 +52,30 @@ const Error = styled.div`
     transition: 0.5s;
   }
 
-.button:hover {
+  .button:hover {
     background-color: #28a4a4;
   }
-.disabled {
+  .disabled {
     cursor: not-allowed;
     background-color: #cc0000;
   }
 
-.disabled:hover {
-  opacity: 0.6;
-  background-color: pink;
-}
+  .disabled:hover {
+    opacity: 0.6;
+    background-color: pink;
+  }
 
   @media screen and (max-width: 600px) {
     display: block;
     font-size: 13px;
   }
 
-  @media all and (max-width: 600px){
- .button{
-  display: block;
-  margin: 0.4em auto;
- }
-}
+  @media all and (max-width: 600px) {
+    .button {
+      display: block;
+      margin: 0.4em auto;
+    }
+  }
 `;
 
 export default Error;

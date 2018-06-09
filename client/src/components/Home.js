@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import header from '../images/logo-foundersandcoders-shadow.png';
 import { Hero, TagLine, HeaderLogo } from '../styles/components/homeStyles';
-import Error from '../styles/components/Error';
+import ErrorPage from '../ErrorPage';
 import '../styles/LoginBtn.css';
 import githubLogo from '../images/github-6-80-w.png';
 
@@ -37,9 +37,7 @@ class Home extends Component {
       window.location.href = `/${this.state.username}`;
     } else if (this.state.error) {
       return (
-        <Error>
-          <h1>Oh No!!! something went wrong :|</h1>
-        </Error>
+        <ErrorPage />
       );
     } else {
       return (
