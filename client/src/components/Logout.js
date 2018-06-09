@@ -1,31 +1,42 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ErrorPage from './ErrorPage';
 
 class Logout extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      error: false
+    };
+
+    this.renderError = this.renderError.bind(this);
   }
   componentDidMount() {
     setTimeout(() => {
       axios
         .get('/api/logout')
         .then(res => {
-          console.log(res.data);
-          this.setState({ logged_out: true });
-          res.data === 'success' ? window.location.href = "/" : null;
+          res.data === 'logged out' ? (window.location.href = '/') : null;
         })
         .catch(err => {
           console.log(err);
+          this.renderError();
         });
-    }, 3000);
+    }, 2000);
   }
-
+  renderError() {
+    this.setState({ error: true });
+  }
   render() {
+    if (this.state.error) {
+      return <ErrorPage />;
+    }
     return (
       <div>
-      <h1>Goodbye! :(</h1>
-    </div>
-  );
+        <h1>Goodbye! :(</h1>
+      </div>
+    );
   }
 }
 

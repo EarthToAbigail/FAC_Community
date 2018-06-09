@@ -14,6 +14,8 @@ class Home extends Component {
       authenticated: false,
       error: false
     };
+
+    this.renderError = this.renderError.bind(this);
   }
   componentDidMount() {
     axios
@@ -23,8 +25,8 @@ class Home extends Component {
         this.setState({ authenticated, username });
       })
       .catch(err => {
-        console.log('this is my error: ', err);
-
+        console.log(err);
+        this.renderError();
       });
   }
 
@@ -36,37 +38,30 @@ class Home extends Component {
     if (this.state.authenticated === true) {
       window.location.href = `/${this.state.username}`;
     } else if (this.state.error) {
-      return (
-        <ErrorPage />
-      );
-    } else {
-      return (
-        <Hero>
-          <div>
-            <HeaderLogo alt="Founders and Coders logo" src={header} />
-            <div>
-              <TagLine>
-                Sharing Platform for the Founders and Coders Community
-              </TagLine>
-              <ul>
-                <li>
-                  <a className="round green" href="/auth/github">
-                    Login
-                    <span className="round">
-                      <img
-                        className="logo"
-                        src={githubLogo}
-                        alt="github logo"
-                      />
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Hero>
-      );
+      return <ErrorPage />;
     }
+    return (
+      <Hero>
+        <div>
+          <HeaderLogo alt="Founders and Coders logo" src={header} />
+          <div>
+            <TagLine>
+              Sharing Platform for the Founders and Coders Community
+            </TagLine>
+            <ul>
+              <li>
+                <a href="/auth/github" className="round green">
+                  Login
+                  <span className="round">
+                    <img className="logo" src={githubLogo} alt="github logo" />
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Hero>
+    );
   }
 }
 

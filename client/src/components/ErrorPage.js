@@ -30,7 +30,7 @@ const ErrorPage = () => {
           <span className="blue">whyOhWhy</span>(
           <span className="red">"$%ndeo@...don't get it... @!$%^).."</span>)
         </h3>
-        <a href="/" className="button disabled">
+        <a href="#" className="button disabled">
           <span>Back to Home</span>
         </a>
       </div>

@@ -5,6 +5,7 @@ import Profile from './components/Profile';
 import Editor from './components/Editor';
 import Logout from './components/Logout';
 import ErrorPage from './components/ErrorPage';
+import KickOut from './components/KickOut';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route exact path="/:username" component={Profile} />
           <Route exact path="/:username/moments/edit" component={Editor} />
           <Route exact path="/:username/logout" component={Logout} />
+          <Route exact path="/:username/not-a-member" component={KickOut} />
           <Route component={ErrorPage} />
         </Switch>
       </div>

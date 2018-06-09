@@ -15,7 +15,7 @@ exports.account = (req, res) => {
 
 exports.logout = (req, res) => {
   req.logout();
-  res.status(200).send('success');
+  res.status(200).send('logged out');
 };
 
 exports.isMember = (req, res) => {
@@ -31,9 +31,15 @@ exports.isMember = (req, res) => {
     else {
       const orgs = JSON.parse(body);
       const isMember = orgs.filter(name => name.login === 'foundersandcoders');
-      _.isEmpty(isMember)
-        ? res.redirect(`/api/logout`)
-        : res.redirect(`/${req.user.username}`)
+      if (_.isEmpty(isMember)) {
+        const user = req.user.username;
+        req.logout();
+        res.redirect(`/${user}/not-a-member`);
+      } else if (!req.user.username) {
+        res.redirect('/');
+      } else {
+        res.redirect(`/${req.user.username}`)
+      }
     }
   });
 };

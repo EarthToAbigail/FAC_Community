@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Navbar from '../components/Navbar';
+import Navbar from './Navbar';
+import ErrorPage from './ErrorPage';
 
 class Profile extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      user: null
+      user: null,
+      error: false
     };
+
+    this.renderError = this.renderError.bind(this);
   }
   componentDidMount() {
     axios
@@ -20,7 +25,11 @@ class Profile extends Component {
       })
       .catch(err => {
         console.log(err);
+        this.renderError();
       });
+  }
+  renderError() {
+    this.setState({ error: true });
   }
   render() {
     if (!this.state.user) {
@@ -29,10 +38,12 @@ class Profile extends Component {
           <h2>Loading...</h2>
         </div>
       );
+    } else if (this.state.error) {
+      return <ErrorPage />;
     }
     return (
       <div>
-        <Navbar username={this.props.match.params.username}/>
+        <Navbar username={this.props.match.params.username} />
         <div>
           <h2>Profile Page</h2>
         </div>
