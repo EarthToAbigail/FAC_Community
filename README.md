@@ -47,4 +47,4 @@ helps for moment editing).
 * Use a database to hold user information, updates on status (ex: from student to mentor), moments and posts and comments on the community page
 * Find appropriate technology for editing of moments, needs to be intuitive and pleasant to look at and work on.
  
-**For the platform to function properly, it would need to be moderated (mainly for schedule changes and updates)**
+**For the platform to function properly, it would need to be moderated**
