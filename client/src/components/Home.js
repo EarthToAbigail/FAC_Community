@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import header from '../images/logo-foundersandcoders-shadow.png';
 import { Hero, TagLine, HeaderLogo } from '../styles/components/homeStyles';
-import ErrorPage from '../ErrorPage';
+import ErrorPage from './ErrorPage';
 import '../styles/LoginBtn.css';
 import githubLogo from '../images/github-6-80-w.png';
 
