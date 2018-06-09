@@ -20,6 +20,8 @@ const ErrorPage = () => {
         </h3>
         <a
           href="https://github.com/EarthToAbigail/FAC_Community"
+          target="_blank"
+          rel="noreferrer noopener"
           className="button"
         >
           <span>Submit an Issue</span>
