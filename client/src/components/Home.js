@@ -5,6 +5,7 @@ import { Hero, TagLine, HeaderLogo } from '../styles/components/homeStyles';
 import ErrorPage from './ErrorPage';
 import '../styles/LoginBtn.css';
 import githubLogo from '../images/github-6-80-w.png';
+import heroImage from '../images/academy-EDIT2.jpg';
 
 class Home extends Component {
   constructor(props) {
@@ -41,7 +42,7 @@ class Home extends Component {
       return <ErrorPage />;
     }
     return (
-      <Hero>
+      <Hero image={heroImage}>
         <div>
           <HeaderLogo alt="Founders and Coders logo" src={header} />
           <div>

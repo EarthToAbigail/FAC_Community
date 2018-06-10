@@ -42,7 +42,7 @@ class Navbar extends Component {
         <a href={this.state.forum_url}>Community</a>
         <a href={logoutUrl}>Logout</a>
         <button className="icon" onClick={this.handleClick}>
-          <FaBars size={20} color="white" />
+          <FaBars size={27} color="white" />
         </button>
       </div>
     );

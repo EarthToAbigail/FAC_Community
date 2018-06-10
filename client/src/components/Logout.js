@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ErrorPage from './ErrorPage';
+import { Hero } from '../styles/components/homeStyles';
+import Goodbye from '../styles/components/Goodbye';
 
 class Logout extends Component {
   constructor(props) {
@@ -24,7 +26,7 @@ class Logout extends Component {
           console.err(err);
           this.renderError();
         });
-    }, 2000);
+    }, 5000);
   }
   renderError() {
     this.setState({ error: true });
@@ -34,9 +36,13 @@ class Logout extends Component {
       return <ErrorPage />;
     }
     return (
-      <div>
-        <h1>Goodbye! :(</h1>
-      </div>
+      <Hero color="#28a4a4">
+        <Goodbye>
+          <h1>Really...</h1>
+          <h1>Ok...</h1>
+          <h1>Come back soon...</h1>
+        </Goodbye>
+      </Hero>
     );
   }
 }

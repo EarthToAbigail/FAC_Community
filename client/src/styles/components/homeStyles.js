@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import heroBackground from '../../images/academy-EDIT2.jpg';
 
 export const Hero = styled.div`
-  background-image: url(${heroBackground});
+  background-image: url(${props => props.image});
+  background-color: ${props => props.color};
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -19,6 +19,8 @@ export const Hero = styled.div`
 export const TagLine = styled.h1`
   color: white;
   padding-top: 3vh;
+  text-shadow: 2px 2px #000;
+  ${'' /* font-family: Open Sans, sans-serif; */}
 `;
 
 export const HeaderLogo = styled.img`
