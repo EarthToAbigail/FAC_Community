@@ -12,6 +12,7 @@ class Profile extends Component {
       error: false
     };
 
+    this.saveCurrentFacster = this.saveCurrentFacster.bind(this);
     this.renderError = this.renderError.bind(this);
   }
   componentDidMount() {
@@ -21,12 +22,17 @@ class Profile extends Component {
         // eslint-disable-next-line no-undef
         if (!res.data.username) window.location.href = '/';
         else {
-          this.setState({ user: res.data });
+          this.saveCurrentFacster(res);
         }
       })
       .catch(err => {
         this.renderError();
       });
+  }
+  saveCurrentFacster(result) {
+    this.setState({ user: result.data });
+    // eslint-disable-next-line no-undef
+    localStorage.setItem('facster', result.data.username);
   }
   renderError() {
     this.setState({ error: true });
@@ -43,7 +49,7 @@ class Profile extends Component {
     }
     return (
       <div>
-        <Navbar username={this.props.match.params.username} />
+        <Navbar username={this.state.user.username} />
         <div>
           <h2>Profile Page</h2>
         </div>

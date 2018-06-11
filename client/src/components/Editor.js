@@ -16,12 +16,14 @@ class Editor extends Component {
     this.setState({ error: true });
   }
   render() {
+    // eslint-disable-next-line no-undef
+    const username = localStorage.getItem('facster');
     if (this.state.error) {
       return <ErrorPage />;
     }
     return (
       <div>
-        <Navbar username={this.props.match.params.username} />
+        <Navbar username={username} />
         <h1>This is my Editor</h1>
       </div>
     );
