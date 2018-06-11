@@ -25,7 +25,7 @@ class Logout extends Component {
         .catch(err => {
           this.renderError();
         });
-    }, 5000);
+    }, 2000);
   }
   renderError() {
     this.setState({ error: true });
