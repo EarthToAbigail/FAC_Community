@@ -19,6 +19,7 @@ class Logout extends Component {
       axios
         .get('/api/logout')
         .then(res => {
+          localStorage.removeItem('facster'); // eslint-disable-line no-undef
           // eslint-disable-next-line no-undef
           if (res.data === 'logged out') window.location.href = '/';
         })
