@@ -26,7 +26,6 @@ class Home extends Component {
         this.setState({ authenticated, username });
       })
       .catch(err => {
-        console.log(err);
         this.renderError();
       });
   }

@@ -25,7 +25,6 @@ class Profile extends Component {
         }
       })
       .catch(err => {
-        console.log(err);
         this.renderError();
       });
   }
@@ -33,18 +32,13 @@ class Profile extends Component {
     this.setState({ error: true });
   }
   render() {
-    if (!this.state.user) {
-      return (
-        <div>
-          <h2>Loading...</h2>
-        </div>
-      );
-    } else if (this.state.error) {
+    const { username } = this.state.user;
+    if (this.state.error) {
       return <ErrorPage />;
     }
     return (
       <div>
-        <Navbar username={this.props.match.params.username} />
+        <Navbar username={username} />
         <div>
           <h2>Profile Page</h2>
         </div>

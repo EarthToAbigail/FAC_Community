@@ -23,7 +23,6 @@ class Logout extends Component {
           if (res.data === 'logged out') window.location.href = '/';
         })
         .catch(err => {
-          console.err(err);
           this.renderError();
         });
     }, 5000);

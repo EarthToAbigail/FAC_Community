@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FaBars } from 'react-icons/lib/fa';
+import PropTypes from 'prop-types';
 import '../styles/navbar.css';
 
 class Navbar extends Component {
@@ -10,6 +11,7 @@ class Navbar extends Component {
       classes: 'topnav',
       forum_url: ''
     };
+
     this.handleClick = this.handleClick.bind(this);
     this.findForumUrl = this.findForumUrl.bind(this);
   }
@@ -31,11 +33,12 @@ class Navbar extends Component {
   }
 
   render() {
+    const homeUrl = '/'.concat(this.props.username);
     const logoutUrl = '/'.concat(this.props.username.concat('/logout'));
     const momentUrl = '/'.concat(this.props.username.concat('/moments/edit'));
     return (
       <div className={this.state.classes}>
-        <a href="/" className="active">
+        <a href={homeUrl} className="active">
           Home
         </a>
         <a href={momentUrl}>Moments</a>
@@ -48,5 +51,9 @@ class Navbar extends Component {
     );
   }
 }
+
+Navbar.propTypes = {
+  username: PropTypes.string.isRequired
+};
 
 export default Navbar;

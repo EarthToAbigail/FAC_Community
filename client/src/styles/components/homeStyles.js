@@ -20,7 +20,6 @@ export const TagLine = styled.h1`
   color: white;
   padding-top: 3vh;
   text-shadow: 2px 2px #000;
-  ${'' /* font-family: Open Sans, sans-serif; */}
 `;
 
 export const HeaderLogo = styled.img`
