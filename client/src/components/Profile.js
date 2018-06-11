@@ -32,13 +32,18 @@ class Profile extends Component {
     this.setState({ error: true });
   }
   render() {
-    const { username } = this.state.user;
     if (this.state.error) {
       return <ErrorPage />;
+    } else if (!this.state.user) {
+      return (
+        <div>
+          <h1>Loading...</h1>
+        </div>
+      );
     }
     return (
       <div>
-        <Navbar username={username} />
+        <Navbar username={this.props.match.params.username} />
         <div>
           <h2>Profile Page</h2>
         </div>
